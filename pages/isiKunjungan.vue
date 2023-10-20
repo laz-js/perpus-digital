@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-info p-5 rounded-5">
+  <div class="container bg-info bg-opacity-75 p-5 rounded-5">
     <h1>Isi Kunjungan</h1>
     <form @submit.prevent="masukkanData">
       <div class="mb-3">

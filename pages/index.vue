@@ -4,16 +4,19 @@
     <div class="table-responsive rounded-4">
       <table class="table table-sm table-info table-bordered border-dark table-hover">
         <thead>
-          <tr class="table-warning">
-            <th width="2%">No</th>
-            <th width="10%">Tanggal</th>
-            <th width="30%">Nama</th>
-            <th width="10%">Kelas</th>
+          <tr class="table-warning align-middle text-center">
+            <th rowspan="2" width="2%">No</th>
+            <th rowspan="2" width="10%">Tanggal</th>
+            <th rowspan="2" width="25%">Nama</th>
+            <th rowspan="2" width="10%">Kelas</th>
+            <th colspan="4">Kategori</th>
+            <th rowspan="2">Keperluan</th>
+          </tr>
+          <tr class="table-light">
             <th width="1%">Siswa</th>
             <th width="1%">Guru</th>
             <th width="1%">Umum</th>
             <th width="1%">Staf</th>
-            <th width="32%">Keperluan</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -67,6 +70,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
