@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/supabase"],
-  css: ['@/assets/main.css'],
+  css: [
+    'bootstrap/dist/css/bootstrap.css',
+    '@/assets/main.css'
+  ],
   supabase: {
     redirect: false
   }
