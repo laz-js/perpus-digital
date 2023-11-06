@@ -1,6 +1,6 @@
 :root {
-  --color-1: #ad6a34;
-  --color-2: #4e1204;
+  --color-1: #d17f40;
+  --color-2: #6e4008;
 }
 
 * {
@@ -10,5 +10,5 @@
 
 body {
   min-height: 100vh;
-  background-image: linear-gradient(var(--color-1), var(--color-2));
+  background: linear-gradient(var(--color-1), var(--color-2));
 }
