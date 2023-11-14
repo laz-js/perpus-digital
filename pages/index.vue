@@ -75,6 +75,9 @@ onMounted(() => {
 h2 {
   font-family: Magra;
 }
+img {
+  translate: 20px -35px;
+}
 img:hover {
   animation: muter 10s linear infinite;
 }
@@ -83,7 +86,7 @@ img:hover {
     rotate: 0deg
   }
   to {
-    rotate: 360deg;
+    rotate: -360deg;
   }
 }
 </style>
