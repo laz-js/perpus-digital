@@ -1,6 +1,6 @@
 <template>
   <div class="container bg-info bg-opacity-75 p-5 rounded-5">
-    <h1>Isi Kunjungan</h1>
+    <h2 class="text-center">Isi Kunjungan</h2>
     <form @submit.prevent="masukkanData">
       <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
@@ -102,6 +102,7 @@ async function masukkanData() {
 <style scoped>
 .container {
   max-width: 600px;
+  font-family: Magra;
 }
 .kelas select {
   display: inline-block;

@@ -1,6 +1,16 @@
 :root {
-  --color-1: #d17f40;
-  --color-2: #6e4008;
+  --color-1: #4A3317;
+  --color-2: #E5D494;
+  --color-3: #B5B0A1;
+}
+
+@font-face {
+  font-family: LeckerliOne;
+  src: url(fonts/LeckerliOne-Regular.ttf);
+}
+@font-face {
+  font-family: Magra;
+  src: url(fonts/Magra-Regular.ttf);
 }
 
 * {
@@ -10,5 +20,7 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(var(--color-1), var(--color-2));
+  background-color: var(--color-1);
+  background-image: url('./img/background.png');
+  background-size: cover;
 }

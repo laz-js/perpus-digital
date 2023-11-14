@@ -1,7 +1,8 @@
 <template>
-  <div class="container">
-    <h1>Catatan</h1>
-    <div class="table-responsive rounded-4">
+  <div class="container position-relative">
+    <h2 class="text-white ms-5">Catatan</h2>
+    <img src="~/assets/img/notebook.png" alt="noteboook" class="position-absolute top-0 end-0">
+    <div class="table-responsive rounded-5">
       <table class="table table-sm table-info table-bordered border-dark table-hover">
         <thead>
           <tr class="table-warning align-middle text-center">
@@ -12,7 +13,7 @@
             <th colspan="4">Kategori</th>
             <th rowspan="2">Keperluan</th>
           </tr>
-          <tr class="table-light">
+          <tr class="table-warning">
             <th width="1%">Siswa</th>
             <th width="1%">Guru</th>
             <th width="1%">Umum</th>
@@ -70,4 +71,19 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  font-family: Magra;
+}
+img:hover {
+  animation: muter 10s linear infinite;
+}
+@keyframes muter {
+  from {
+    rotate: 0deg
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+</style>
