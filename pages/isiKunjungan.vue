@@ -1,51 +1,81 @@
 <template>
-  <div class="container bg-info bg-opacity-75 p-5 rounded-5">
+  <div class="container p-5 rounded-5">
     <h2 class="text-center">Isi Kunjungan</h2>
     <form @submit.prevent="masukkanData">
-      <div class="mb-3">
-        <label for="nama" class="form-label">Nama</label>
-        <input type="text" class="form-control" id="nama" placeholder="Nama" v-model="nama" />
+      <div class="row mb-3">
+        <div class="col">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" id="nama" placeholder="Nama" v-model="nama" />
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label for="kategori" class="form-label">Kategori Pengunjung: {{ kategori }}</label>
-        <select id="kategori" class="form-select" v-model="kategori">
-          <option disabled value="">Siapa yang mengisi?</option>
-          <option>Siswa</option>
-          <option>Guru</option>
-          <option>Staf</option>
-          <option>Umum</option>
-        </select>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="kategori" class="form-label">Kategori Pengunjung: {{ kategori }}</label>
+          <select id="kategori" class="form-select" v-model="kategori">
+            <option disabled value="">Siapa yang mengisi?</option>
+            <option>Siswa</option>
+            <option>Guru</option>
+            <option>Staf</option>
+            <option>Umum</option>
+          </select>
+        </div>
       </div>
 
-      <div v-if="kategori == 'Siswa'" class="kelas mb-3">
-        <div>Kelas: {{ tingkat }} {{ jurusan }} {{ kelas }}</div>
-        <label for="tingkat" class="form-label me-2">Tingkat</label>
-        <select id="tingkat" class="form-select me-2" @change="resetKelas" v-model="tingkat">
-          <option>X</option>
-          <option>XI</option>
-          <option>XII</option>
-        </select>
-        <label for="jurusan" class="form-label me-2">Jurusan</label>
-        <select id="jurusan" class="form-select me-2" @change="resetKelas" :disabled="!(tingkat)" v-model="jurusan">
-          <option>TJKT</option>
-          <option>PPLG</option>
-          <option>TSM</option>
-          <option v-if="!(tingkat=='XII')">DKV</option>
-          <option v-if="!(tingkat=='XII')">TOI</option>
-        </select>
-        <label for="kelas" class="form-label me-2">Kelas</label>
-        <select id="kelas" class="form-select" :disabled="!(jurusan) || jurusan=='TOI'" v-model="kelas">
-          <option>1</option>
-          <option>2</option>
-          <option v-if="!(jurusan=='DKV')">3</option>
-          <option v-if="!(jurusan=='DKV') && !(tingkat=='XII')">4</option>
-        </select>
+      <div v-if="kategori == 'Siswa'" class="kelas row mb-3">
+        <div class="col">
+          <div class="row mb-1">
+            <div class="col">
+              <label for="tingkat">Kelas: {{ tingkat }} {{ jurusan }} {{ kelas }}</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col-lg-4"><label for="tingkat" class="form-label me-2">Tingkat</label></div>
+                <div class="col-lg-8">
+                  <select id="tingkat" class="form-select" @change="resetKelas" v-model="tingkat">
+                    <option>X</option>
+                    <option>XI</option>
+                    <option>XII</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col-lg-4"><label for="jurusan" class="form-label me-2">Jurusan</label></div>
+                <div class="col-lg-8">
+                  <select id="jurusan" class="form-select" @change="resetKelas" :disabled="!(tingkat)" v-model="jurusan">
+                    <option>TJKT</option>
+                    <option>PPLG</option>
+                    <option>TSM</option>
+                    <option v-if="tingkat != 'XII'">DKV</option>
+                    <option v-if="tingkat != 'XII'">TOI</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col-lg-4"><label for="kelas" class="form-label me-2">Kelas</label></div>
+                <div class="col-lg-8">
+                  <select id="kelas" class="form-select" :disabled="!(jurusan) || jurusan=='TOI'" v-model="kelas">
+                    <option>1</option>
+                    <option>2</option>
+                    <option v-if="jurusan != 'DKV'">3</option>
+                    <option v-if="jurusan != 'DKV' && tingkat != 'XII'">4</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="mb-3">
         <label for="keperluan" class="form-label">Keperluan</label>
-        <input type="text" class="form-control" v-model="keperluan" placeholder="Keperluan..." />
+        <input id="keperluan" type="text" class="form-control" v-model="keperluan" placeholder="Keperluan..." />
       </div>
 
       <input type="submit" class="btn btn-primary" :disabled="disableButton" value="Done">
@@ -101,11 +131,18 @@ async function masukkanData() {
 
 <style scoped>
 .container {
-  max-width: 600px;
+  max-width: 700px;
   font-family: Magra;
+  background: linear-gradient(rgba(var(--color-2), var(--alpha)), rgb(var(--color-1)));
+  color: rgb(var(--color-3));
+}
+input, label, select {
+  font-size: 1.5vmax;
+}
+input, select {
+  max-height: 4vmax;
 }
 .kelas select {
   display: inline-block;
-  max-width: 100px;
 }
 </style>

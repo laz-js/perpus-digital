@@ -1,7 +1,7 @@
 <template>
-  <div class="container d-flex-column text-center p-3 mb-5">
-    <img src="~/assets/img/logo_smk4.png" alt="logo" class="mt-4 float-start">
-    <h1>Perpus Digital</h1>
+  <div class="container-sm d-flex-column position-relative text-center p-3 mb-3">
+    <img src="~/assets/img/logo_smk4.png" alt="logo" class="position-absolute top-50 start-0 translate-middle-y">
+    <h1>Perpustakaan Digital</h1>
     <p>Catatan Kunjungan Perpustakaan SMKN 4 Tasikmalaya</p>
     <div class="navigasi">
       <NuxtLink to="/">Catatan</NuxtLink>
@@ -16,31 +16,31 @@
 
 <style scoped>
 img {
-  width: 100px;
+  width: 7vmax;
 }
 h1 {
   font-family: LeckerliOne;
-  font-size: 4em;
-  color: var(--color-2);
+  font-size: 4.5vmax;
+  color: rgb(var(--color-3));
 }
 p {
   padding-left: 2.5em;
   font-family: monospace;
-  font-size: 1.2em;
-  color: var(--color-3);
+  font-size: 1.8vmax;
+  color: rgb(var(--color-4));
 }
 .navigasi a {
   display: inline-block;
-  width: 180px;
-  height: 50px;
-  margin: 5px;
+  width: 20vw;
+  margin: 0 20px;
+  font-size: 1.8vmax;
   text-decoration: none;
-  background-color: #D9D9D9AA;
-  color: var(--color-1);
-  padding: 10px;
-  border-radius: 10px;
+  background-color: rgba(var(--color-5), var(--alpha));
+  color: rgb(var(--color-3));
+  padding: 1.5vmax 0.5vmax;
+  border-radius: 2.5vmax;
 }
 .navigasi a:hover {
-  background-color: #D9D9D977;
+  background-color: rgba(var(--color-5), 0.46);
 }
 </style>

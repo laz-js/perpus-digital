@@ -1,13 +1,17 @@
 :root {
-  --color-1: #4A3317;
-  --color-2: #E5D494;
-  --color-3: #B5B0A1;
+  --color-1: 106, 70, 36;
+  --color-2: 191, 143, 95;
+  --color-3: 236, 220, 202;
+  --color-4: 166, 165, 145;
+  --color-5: 120, 150, 28;
+  --alpha: 0.66;
 }
 
 @font-face {
   font-family: LeckerliOne;
   src: url(fonts/LeckerliOne-Regular.ttf);
 }
+
 @font-face {
   font-family: Magra;
   src: url(fonts/Magra-Regular.ttf);
@@ -20,7 +24,11 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--color-1);
+  background-color: rgb(var(--color-1));
   background-image: url('./img/background.png');
   background-size: cover;
+}
+
+h2 {
+  font-size: 3vmax;
 }

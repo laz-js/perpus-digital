@@ -75,8 +75,12 @@ onMounted(() => {
 h2 {
   font-family: Magra;
 }
+table {
+  font-size: 1.3vmax;
+}
 img {
-  translate: 20px -35px;
+  width: 10vmax;
+  translate: -1vmax -1.5vmax;
 }
 img:hover {
   animation: muter 10s linear infinite;
