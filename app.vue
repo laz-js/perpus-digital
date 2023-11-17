@@ -1,5 +1,8 @@
 <template>
   <div>
+    <Head>
+      <Title>Perpustakaan Digital</Title>
+    </Head>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
