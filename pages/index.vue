@@ -8,10 +8,11 @@
           <tr class="table-warning align-middle text-center">
             <th rowspan="2" width="2%">No</th>
             <th rowspan="2" width="10%">Tanggal</th>
+            <th rowspan="2" width="10%">Jam</th>
             <th rowspan="2" width="25%">Nama</th>
             <th rowspan="2" width="10%">Kelas</th>
             <th colspan="4">Kategori</th>
-            <th rowspan="2">Keperluan</th>
+            <th colspan="2" rowspan="2">Keperluan</th>
           </tr>
           <tr class="table-warning">
             <th width="1%">Siswa</th>
@@ -22,11 +23,12 @@
         </thead>
         <tbody class="table-group-divider">
           <tr v-if="loading">
-            <td class="text-center" colspan="9">Sabar ya lagi loading...</td>
+            <td class="text-center" colspan="11">Sabar ya lagi loading...</td>
           </tr>
           <tr v-else v-for="(k, index) in kunjungan" :key="k.id">
             <th>{{ index + 1 }}</th>
-            <td>{{ k.tanggal }}</td>
+            <td>{{ k.created_at.split('T')[0] }}</td>
+            <td>{{ k.created_at.split('T')[1].split('.')[0] }}</td>
             <td>{{ k.nama }}</td>
             <td>{{ k.kelas }}</td>
             <td>
@@ -42,6 +44,7 @@
               <div v-if="k.kategori_pengunjung == 'staf'">✔️</div>
             </td>
             <td>{{ k.keperluan }}</td>
+            <td><button class="btn btn-link p-0">Edit</button></td>
           </tr>
         </tbody>
       </table>
@@ -68,6 +71,10 @@ async function getData() {
 
 onMounted(() => {
   getData()
+  setTimeout(() => {
+    console.log(kunjungan.value[0].created_at.split('T')[0])
+    console.log(kunjungan.value[0].created_at.split('T')[1].split('.')[0])
+  }, 3000);
 })
 </script>
 
@@ -75,20 +82,30 @@ onMounted(() => {
 h2 {
   font-family: Magra;
 }
-table {
-  font-size: 1.3vmax;
-}
+
 img {
-  width: 10vmax;
-  translate: -1vmax -1.5vmax;
+  width: 100px;
 }
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 50px;
+    translate: 0 20px;
+  }
+  table {
+    font-size: 0.7em;
+  }
+}
+
 img:hover {
   animation: muter 10s linear infinite;
 }
+
 @keyframes muter {
   from {
     rotate: 0deg
   }
+
   to {
     rotate: -360deg;
   }
